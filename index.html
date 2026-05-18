@@ -301,7 +301,7 @@
     <button class="tab-btn" onclick="switchTab('presensi')">📅 Presensi</button>
     <button class="tab-btn" onclick="switchTab('penjahit')">✂️ Penjahit</button>
     <button class="tab-btn" onclick="switchTab('stok')">📦 Stok Barang</button>
-    <button class="tab-btn active">🏭 Orderan</button>
+    <button class="tab-btn active">📋 Orderan</button>
     <button class="tab-btn" onclick="switchTab('keuangan')">💰 Keuangan</button>
     <button class="tab-btn" onclick="switchTab('alat-bahan')">🧰 Alat & Bahan</button>
   </div>
@@ -375,7 +375,7 @@
 
 <script>
   // ── GANTI URL INI SETELAH DEPLOY APPS SCRIPT ──
-  const PRONETO_URL = "https://script.google.com/macros/s/AKfycbxL4zAlzu3rikATXao7fePEc8vYQxeYUi_AsK7Tz1u9y4g6pmkLgi0CBaYuqHtgyjFSCw/exec";
+  const PRONETO_URL = "https://script.google.com/macros/s/GANTI_DENGAN_URL_PRONETO/exec";
   // Clothivo menyusul — isi nanti
   const CLOTHIVO_URL = "";
 
@@ -439,7 +439,7 @@
   }
   function setDefaultFilter() {
     const now = new Date();
-    document.getElementById('sel-bulan').value = now.getMonth() + 1;
+    document.getElementById('sel-bulan').value = '';  // semua bulan
     document.getElementById('sel-tahun').value = now.getFullYear();
   }
 
@@ -453,7 +453,7 @@
     if (!url) { showError('URL Apps Script belum diisi.'); return; }
 
     try {
-      const res = await fetch(`${url}?page=Orderan&bulan=${bulan}&tahun=${tahun}`);
+      const res = await fetch(`${url}?page=produksi&bulan=${bulan}&tahun=${tahun}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
@@ -506,7 +506,7 @@
           <span class="kpi-emoji">📦</span>
           <div class="kpi-label">Total Produk</div>
           <div class="kpi-value">${fmt(d.totalQty)}</div>
-          <div class="kpi-sub">unit diOrderan</div>
+          <div class="kpi-sub">unit dipesan</div>
         </div>
         <div class="kpi-card c-blue">
           <span class="kpi-emoji">🧾</span>
