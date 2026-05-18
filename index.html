@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Monito – Produksi</title>
+<title>Monito – Orderan</title>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -301,7 +301,7 @@
     <button class="tab-btn" onclick="switchTab('presensi')">📅 Presensi</button>
     <button class="tab-btn" onclick="switchTab('penjahit')">✂️ Penjahit</button>
     <button class="tab-btn" onclick="switchTab('stok')">📦 Stok Barang</button>
-    <button class="tab-btn active">🏭 Produksi</button>
+    <button class="tab-btn active">🏭 Orderan</button>
     <button class="tab-btn" onclick="switchTab('keuangan')">💰 Keuangan</button>
     <button class="tab-btn" onclick="switchTab('alat-bahan')">🧰 Alat & Bahan</button>
   </div>
@@ -453,7 +453,7 @@
     if (!url) { showError('URL Apps Script belum diisi.'); return; }
 
     try {
-      const res = await fetch(`${url}?page=produksi&bulan=${bulan}&tahun=${tahun}`);
+      const res = await fetch(`${url}?page=Orderan&bulan=${bulan}&tahun=${tahun}`);
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
       const data = await res.json();
       if (data.error) throw new Error(data.error);
@@ -506,7 +506,7 @@
           <span class="kpi-emoji">📦</span>
           <div class="kpi-label">Total Produk</div>
           <div class="kpi-value">${fmt(d.totalQty)}</div>
-          <div class="kpi-sub">unit diproduksi</div>
+          <div class="kpi-sub">unit diOrderan</div>
         </div>
         <div class="kpi-card c-blue">
           <span class="kpi-emoji">🧾</span>
