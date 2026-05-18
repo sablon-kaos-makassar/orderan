@@ -439,7 +439,7 @@
   }
   function setDefaultFilter() {
     const now = new Date();
-    document.getElementById('sel-bulan').value = '';  // semua bulan
+    document.getElementById('sel-bulan').value = now.getMonth() + 1;
     document.getElementById('sel-tahun').value = now.getFullYear();
   }
 
