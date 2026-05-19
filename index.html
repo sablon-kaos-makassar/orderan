@@ -303,6 +303,7 @@
     <button class="tab-btn" onclick="switchTab('penjahit')">✂️ Penjahit</button>
     <button class="tab-btn" onclick="switchTab('stok')">📦 Stok Barang</button>
     <button class="tab-btn active">📋 Orderan</button>
+    <button class="tab-btn" onclick="switchTab('produksi')">🏭 Produksi</button>
     <button class="tab-btn" onclick="switchTab('keuangan')">💰 Keuangan</button>
     <button class="tab-btn" onclick="switchTab('alat-bahan')">🧰 Alat & Bahan</button>
   </div>
@@ -543,9 +544,8 @@
         </div>` : ''}
       </div>
 
-      <!-- Kategori + Deadline -->
-      <div class="two-col">
-        <div class="panel">
+      <!-- Kategori -->
+      <div class="panel">
           <div class="panel-title">📊 Per Kategori Produk</div>
           ${d.kategori.length ? d.kategori.map((k, i) => `
             <div class="kat-item">
@@ -558,23 +558,6 @@
               </div>
             </div>`).join('') : '<div style="color:var(--ink3);font-size:13px;">Tidak ada data.</div>'}
         </div>
-
-        <div class="panel">
-          <div class="panel-title">⏰ Mendekati Deadline <span style="font-size:11px;font-weight:500;color:var(--ink3);">7 hari ke depan</span></div>
-          ${d.mendekatiDeadline.length ? `
-          <div class="deadline-list">
-            ${d.mendekatiDeadline.map(item => `
-            <div class="deadline-item">
-              ${deadlineBadge(item.selisihHari)}
-              <div class="deadline-info">
-                <div class="deadline-name">${item.nama}</div>
-                <div class="deadline-meta">${item.produk} · ${fmt(item.qty)} pcs · ${item.invoice}</div>
-              </div>
-              <div class="deadline-tgl">${item.deadline}</div>
-            </div>`).join('')}
-          </div>` : `<div style="color:var(--ink3);font-size:13px;padding:12px 0;">✅ Tidak ada deadline mendesak.</div>`}
-        </div>
-      </div>
 
       <!-- Order Terbaru -->
       <div class="panel">
