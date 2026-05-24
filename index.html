@@ -608,11 +608,16 @@
   }
 
   function fmt(n)    { return Number(n||0).toLocaleString('id-ID'); }
-  function fmtRp(n)  {
-    const num = Number(n||0);
-    if (num >= 1_000_000) return 'Rp' + (num/1_000_000).toFixed(1).replace('.',',') + 'jt';
-    return 'Rp' + num.toLocaleString('id-ID');
+  // BARU
+  function fmtRp(n) {
+    return 'Rp' + Number(n||0).toLocaleString('id-ID');
   }
+  // function fmtRp(n)  {
+  //   const num = Number(n||0);
+  //   if (num >= 1_000_000) return 'Rp' + (num/1_000_000).toFixed(1).replace('.',',') + 'jt';
+  //   return 'Rp' + num.toLocaleString('id-ID');
+  // }
+  
 </script>
 </body>
 </html>
